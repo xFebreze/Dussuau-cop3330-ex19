@@ -36,8 +36,26 @@ public class App {
         Scanner input = new Scanner(System.in);
 
         System.out.print("How tall are you in inches? ");
-        String height = input.nextLine();
+        String buff_height = input.nextLine();
         System.out.print("How much do you weigh in pounds? ");
-        String transfer = input.nextLine();
+        String buff_weight = input.nextLine();
+
+        //parsing
+        double height = Double.parseDouble(buff_height);
+        double weight = Double.parseDouble(buff_weight);
+
+        //math
+        double bmi = (weight / (height * height)) * 703;
+
+        System.out.printf("your BMI is %.2f\n", bmi);
+
+        if (bmi > 25){
+            System.out.println("you are overweight. You should see your doctor.");
+        }else if(bmi < 18.25){
+            System.out.println("you are underweight. You should see your doctor.");
+        }else{
+            System.out.println("you are within the ideal weight range.");
+
+        }
     }
 }
